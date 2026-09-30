@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f1eb;
+  --sand: #eae2d7;
+  --ink: #201c19;
+  --muted: #756b61;
+  --line: rgba(32, 28, 25, 0.15);
+  --rust: #aa4d33;
+  --gold: #d2ad6d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  font-family: "DM Sans", Arial, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--rust);
+  color: white;
+}
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.font-mono {
+  font-family: "DM Mono", monospace;
+}
+
+.eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.button-rust,
+.button-gold,
+.button-light,
+.button-ghost,
+.button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 14px 20px;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.button-rust {
+  background: var(--rust);
+  color: #fff;
+}
+
+.button-rust:hover,
+.button-gold:hover,
+.button-light:hover,
+.button-outline:hover {
+  transform: translateY(-2px);
+}
+
+.button-rust:hover {
+  background: #873b27;
+}
+
+.button-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.button-gold:hover {
+  background: #e1bf7f;
+}
+
+.button-light {
+  background: #fff;
+  color: var(--ink);
+}
+
+.button-light:hover {
+  background: var(--gold);
+}
+
+.button-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.button-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.button-outline {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.button-outline:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.nav-link,
+.text-link {
+  transition: color 180ms ease;
+}
+
+.nav-link:hover,
+.text-link:hover {
+  color: var(--gold);
+}
+
+.hero-title,
+.section-title {
+  text-wrap: balance;
+}
+
+.gallery-image {
+  animation: rise-in 800ms both;
+}
+
+.gallery-image:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.gallery-image:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+.gallery-image:nth-child(4) {
+  animation-delay: 210ms;
+}
+
+.gallery-image:nth-child(5) {
+  animation-delay: 270ms;
+}
+
+.gallery-image:nth-child(6) {
+  animation-delay: 330ms;
+}
+
+.field-label {
+  display: block;
+  color: var(--ink);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.field-label input,
+.field-label select,
+.field-label textarea {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  padding: 13px 14px;
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: normal;
+  outline: none;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.field-label input:focus,
+.field-label select:focus,
+.field-label textarea:focus {
+  border-color: var(--rust);
+  background: rgba(170, 77, 51, 0.03);
+}
+
+.field-label textarea {
+  resize: vertical;
+}
+
+.field-label input::placeholder,
+.field-label textarea::placeholder {
+  color: #9f958b;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 800ms 150ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-fade-up-delayed {
+  animation: fade-up 950ms 260ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.field-label input[type="date"] {
+  min-height: 50px;
+}
+
+@media (min-width: 640px) {
+  .field-label input,
+  .field-label select,
+  .field-label textarea {
+    font-size: 14px;
+  }
+
+  .field-label input[type="date"] {
+    min-height: 0;
+  }
+}
+
+/* Touch screens have no hover, so keep gallery captions visible */
+@media (hover: none) {
+  .gallery-image figcaption {
+    opacity: 1;
+  }
+}
+
+/* Comfortable tap size for text links on touch screens */
+@media (pointer: coarse) {
+  .text-link {
+    min-height: 44px;
+    align-items: center;
+  }
+}
